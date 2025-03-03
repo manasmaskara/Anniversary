@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romantic Quiz</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background-color: #ffe6e6;
+            color: #d63384;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            max-width: 350px;
+            text-align: center;
+        }
+        h2 {
+            font-weight: 600;
+            color: #ff4d79;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        button {
+            background-color: #ff4d79;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background-color: #e60050;
+            transform: scale(1.05);
+        }
+        .hidden {
+            display: none;
+        }
+        .reset-btn {
+            margin-top: 20px;
+            background-color: #555;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="quizContainer">
+        <h2>When did we FIRST see each other?</h2>
+        <div class="options">
+            <button onclick="checkAnswer(true)">11 Apr 2023</button>
+            <button onclick="checkAnswer(false)">12 Apr 2023</button>
+            <button onclick="checkAnswer(false)">13 Apr 2023</button>
+            <button onclick="checkAnswer(false)">14 Apr 2023</button>
+        
+        </div>
+    </div>
+    <div id="imageContainer" class="hidden">
+        <img src="cert.PNG" alt="Love" style="width: 100%; max-width: 1000px;">
+    </div>
+    <button class="reset-btn" onclick="resetQuiz()">Reset Quiz</button>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            if (localStorage.getItem("correctAnswer") === "true") {
+                document.getElementById("quizContainer").classList.add("hidden");
+                document.getElementById("imageContainer").classList.remove("hidden");
+            }
+        });
+
+        function checkAnswer(isCorrect) {
+            if (isCorrect) {
+                window.location.href ="https://www.jigsawplanet.com/?rc=play&pid=190fac70cdf4";
+                localStorage.setItem("correctAnswer", "true");
+                document.getElementById("quizContainer").classList.add("hidden");
+                // document.getElementById("imageContainer").classList.remove("hidden");
+            } else {
+                alert("Nope, try again!");
+            }
+        }
+
+        function resetQuiz() {
+            localStorage.removeItem("correctAnswer");
+            location.reload();
+        }
+    </script>
+</body>
+</html>
