@@ -77,7 +77,7 @@
     <div id="imageContainer" class="hidden">
         <img src="cert.PNG" alt="Love" style="width: 100%; max-width: 1000px;">
     </div>
-    <button class="reset-btn" onclick="resetQuiz()">Reset Quiz</button>
+    
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -98,10 +98,7 @@
             }
         }
 
-        function resetQuiz() {
-            localStorage.removeItem("correctAnswer");
-            location.reload();
-        }
+  
     </script>
 </body>
 </html>
